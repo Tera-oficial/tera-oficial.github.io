@@ -2,79 +2,257 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GrapeSum</title>
-  <link rel="icon" href="logo.png" type="image/png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GrapeSum — Precisión y Elegancia</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --fondo: #F4F4F4;
+      --texto: #1A1A1A;
+      --gris-caja: #E6E6E6;
+      --gris-borde: #CCCCCC;
+      --gris-logo: #DADADA;
+      --gris-detalle: #555555;
+      --fuente: 'Segoe UI', 'Inter', sans-serif;
     }
 
     body {
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #1a1a1a, #2e2e2e);
-      color: #dddddd;
+      margin: 0;
+      background-color: var(--fondo);
+      color: var(--texto);
+      font-family: var(--fuente);
+    }
+
+    header {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      height: 100vh;
+      justify-content: space-between;
+      padding: 1.5rem 2rem;
+      background-color: white;
+      border-bottom: 1px solid var(--gris-borde);
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .left-block {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex: 1;
+    }
+
+    .left-block .logo-wrapper {
+      background-color: var(--gris-logo);
+      padding: 0.6rem;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .left-block .logo-wrapper img {
+      height: 72px;
+      filter: drop-shadow(0 0 1px #333);
+    }
+
+    .left-block .tera-text {
+      font-weight: 600;
+      font-size: 1.6rem;
+      color: var(--texto);
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .center-block {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      user-select: none;
+      white-space: nowrap;
+      font-weight: 700;
+      font-size: 2.25rem;
+      color: var(--texto);
+    }
+
+    .center-block .logo-wrapper {
+      background-color: var(--gris-logo);
+      padding: 0.4rem;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .center-block .logo-wrapper img {
+      height: 48px;
+      filter: drop-shadow(0 0 1px #333);
+    }
+
+    .right-block {
+      flex: 1;
+    }
+
+    /* SUBNAV (3 columnas iguales sin emojis) */
+    nav.subnav {
+      display: flex;
+      background-color: white;
+      border-bottom: 1px solid var(--gris-borde);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    nav.subnav a {
+      flex: 1;
       text-align: center;
+      text-decoration: none;
+      color: var(--texto);
+      background-color: var(--gris-caja);
+      padding: 1rem 0;
+      font-weight: 500;
+      font-size: 1rem;
+      border-right: 1px solid var(--gris-borde);
+      transition: background-color 0.2s, color 0.2s;
     }
 
-    .container {
-      background-color: rgba(255, 255, 255, 0.025);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.04);
-      max-width: 600px;
-      width: 90%;
+    nav.subnav a:last-child {
+      border-right: none;
     }
 
-    img {
-      width: 90px;
-      margin-bottom: 25px;
-      filter: grayscale(100%) brightness(1.2);
+    nav.subnav a:hover {
+      background-color: #dddddd;
+      color: var(--gris-detalle);
     }
 
-    h1 {
-      font-size: 2.3em;
-      font-weight: 300;
-      color: #f0f0f0;
-      margin-bottom: 10px;
+    main {
+      padding: 2.5rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 3rem;
+      background-color: var(--gris-caja);
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      border: 1px solid var(--gris-borde);
+    }
+
+    h2 {
+      font-weight: 500;
+      margin-bottom: 0.5rem;
     }
 
     p {
-      font-size: 1.2em;
-      color: #b0b0b0;
-      letter-spacing: 0.5px;
+      line-height: 1.6;
     }
 
-    .back-link {
-      margin-top: 40px;
-      display: inline-block;
-      font-size: 0.9em;
-      color: #888;
-      text-decoration: none;
-      border-bottom: 1px dashed #666;
-      transition: color 0.2s;
+    code {
+      background-color: #FAFAFA;
+      padding: 0.75rem 1rem;
+      display: block;
+      border-left: 4px solid var(--gris-detalle);
+      border-radius: 6px;
+      margin-top: 1rem;
+      color: var(--gris-detalle);
+      font-family: monospace;
     }
 
-    .back-link:hover {
-      color: #fff;
+    footer {
+      text-align: center;
+      color: #777;
+      font-size: 0.85rem;
+      margin-top: 4rem;
+      padding: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .left-block, .center-block, .right-block {
+        flex: none;
+      }
+
+      .right-block {
+        display: none;
+      }
+
+      nav.subnav {
+        flex-direction: column;
+      }
+
+      nav.subnav a {
+        border-right: none;
+        border-bottom: 1px solid var(--gris-borde);
+      }
+
+      nav.subnav a:last-child {
+        border-bottom: none;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <img src="logo.png" alt="Tera Labs Logo" />
-    <h1>GrapeSum</h1>
-    <p>Proyecto devolucionario en construcción</p>
-    <a href="index.html" class="back-link">← Volver a Tera Labs</a>
+<header>
+  <div class="left-block">
+    <div class="logo-wrapper">
+      <img src="logo1.png" alt="Logo Tera Labs">
+    </div>
+    <div class="tera-text">Tera Labs</div>
   </div>
+
+  <div class="center-block">
+    <div class="logo-wrapper">
+      <img src="grape.png" alt="Logo GrapeSum">
+    </div>
+    <div>GrapeSum</div>
+  </div>
+
+  <div class="right-block"></div>
+</header>
+
+<!-- BARRA DE NAVEGACIÓN SECUNDARIA -->
+<nav class="subnav">
+  <a href="docs.html">Documentos</a>
+  <a href="com.html">Comunidad</a>
+  <a href="learn.html">Enseñar</a>
+</nav>
+
+<main>
+  <section>
+    <h2>Un lenguaje de precisión</h2>
+    <p>
+      GrapeSum nace de la elegancia de la matemática pura. Un lenguaje nuevo, profesional, limpio y diseñado para la velocidad y claridad.
+    </p>
+  </section>
+
+  <section>
+    <h2>Ejemplo de sintaxis:</h2>
+    <code>
+      block.main:<br>
+      &nbsp;&nbsp;let n = 10;<br>
+      &nbsp;&nbsp;sum = Σ(i = 1; i &lt;= n; i + 1) { i };<br>
+      &nbsp;&nbsp;print(sum);
+    </code>
+  </section>
+
+  <section>
+    <h2>Diseñado para desarrolladores exigentes</h2>
+    <p>
+      GrapeSum compila a C nativo, integrando lo mejor del rendimiento con una sintaxis lógica y expresiva.
+      Totalmente compatible con contenedores Python y JavaScript.
+    </p>
+  </section>
+</main>
+
+<footer>
+  © 2025 GrapeSum. Elegancia en cada instrucción.
+</footer>
 
 </body>
 </html>
