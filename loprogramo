@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>LoProgramo Experiment - Help</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        #helpText {
+            white-space: pre-wrap;
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ccc;
+            display: none;
+        }
+        #acceptButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>LoProgramo Experiment</h1>
+    <p>Antes de ver la ayuda, debe aceptar los términos y condiciones:</p>
+    <button id="acceptButton">Acepto los términos y condiciones</button>
+
+    <div id="helpText">
+========================================
+        LoProgramo Experiment
+========================================
+
+Desarrollador: Aaron
+Empresa: Tera Labs
+Version: 1.0
+Fecha de lanzamiento: 2025
+
+Descripcion:
+LoProgramo Experiment es un proyecto de prueba diseñado para demostrar
+conceptos de programacion y experimentacion con interfaces simples.
+Este software tiene fines educativos y de desarrollo, y no esta diseñado
+para promover la deshonestidad academica o el fraude. Cualquier uso para
+dichos fines es responsabilidad del usuario.
+
+Creditos:
+- Desarrollo: Aaron
+- Empresa: Tera Labs
+
+Soporte:
+Para consultas o soporte tecnico, contacte con Tera Labs a traves de
+los canales oficiales de la empresa.
+
+Aviso Legal:
+Este software se proporciona 'tal cual' sin garantia de ningun tipo.
+Tera Labs y el desarrollador no se responsabilizan por el uso inapropiado
+del software.
+
+© 2025 Aaron, Tera Labs. Todos los derechos reservados.
+Este software se proporciona de manera gratuita para fines educativos y de desarrollo.
+No se permite su uso para fines comerciales o deshonestos.
+La redistribución y modificación están permitidas solo con autorización expresa del autor.
+========================================
+    </div>
+
+    <script>
+        const button = document.getElementById('acceptButton');
+        const helpText = document.getElementById('helpText');
+
+        button.addEventListener('click', () => {
+            helpText.style.display = 'block';
+            button.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
